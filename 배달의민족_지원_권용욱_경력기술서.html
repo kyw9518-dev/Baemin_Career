@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>권용욱 | 경력기술서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mint:    #2AC1BC;
+    --mint-lt: #E8F9F8;
+    --mint-md: #C0EDEB;
+    --black:   #1A1A1A;
+    --gray1:   #333333;
+    --gray2:   #666666;
+    --gray3:   #999999;
+    --gray4:   #CCCCCC;
+    --line:    #EBEBEB;
+    --bg:      #F7F7F7;
+    --white:   #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--black);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 2px solid var(--black);
+    padding: 0 6vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: var(--black); }
+  .nav-logo span { color: var(--mint); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: var(--gray2); text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--mint); }
+
+  /* HERO */
+  .hero {
+    background: var(--black);
+    padding: 4.5rem 6vw 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ''; position: absolute; right: -80px; top: -80px;
+    width: 420px; height: 420px; border-radius: 50%;
+    background: var(--mint); opacity: 0.08; pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block; background: var(--mint); color: var(--white);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 2px; margin-bottom: 1.6rem;
+  }
+  .hero-name {
+    font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900; color: var(--white);
+    line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.2rem;
+  }
+  .hero-name .mint { color: var(--mint); }
+  .hero-tagline {
+    font-size: 15px; color: rgba(255,255,255,0.6); max-width: 560px;
+    line-height: 1.85; margin-bottom: 2.5rem; font-weight: 400;
+  }
+  .hero-bottom { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .hero-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .chip {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75); font-size: 12px; font-weight: 500;
+    padding: 5px 14px; border-radius: 100px;
+  }
+  .hero-btns { display: flex; gap: 0.8rem; margin-left: auto; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px; padding: 10px 20px;
+    font-size: 13px; font-weight: 700; border-radius: 6px; text-decoration: none;
+    transition: all 0.15s; cursor: pointer; border: none;
+  }
+  .btn-mint { background: var(--mint); color: var(--white); }
+  .btn-mint:hover { background: #22a8a3; }
+  .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.3); color: var(--white); }
+  .btn-outline:hover { border-color: var(--mint); color: var(--mint); }
+
+  /* STAT BAR */
+  .stat-bar {
+    background: var(--mint); padding: 1.2rem 6vw;
+    display: flex; gap: 0; overflow-x: auto;
+  }
+  .stat-item {
+    flex: 1; min-width: 120px; display: flex; flex-direction: column; gap: 2px;
+    padding-right: 2rem; border-right: 1px solid rgba(255,255,255,0.25); margin-right: 2rem;
+  }
+  .stat-item:last-child { border-right: none; margin-right: 0; }
+  .stat-label { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; }
+  .stat-val { font-size: 16px; font-weight: 700; color: var(--white); }
+
+  /* SECTION */
+  .section { padding: 4rem 6vw; border-bottom: 1px solid var(--line); background: var(--white); }
+  .section.gray { background: var(--bg); }
+  .section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
+  .section-badge {
+    background: var(--black); color: var(--white);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 2px;
+  }
+  .section-title { font-size: 22px; font-weight: 900; letter-spacing: -0.02em; color: var(--black); }
+
+  /* ABOUT */
+  .about-text { font-size: 17px; font-weight: 400; line-height: 1.85; color: var(--gray1); max-width: 780px; }
+  .about-text strong { font-weight: 700; color: var(--black); }
+
+  /* COMPANY CARD */
+  .company-section { padding: 3rem 6vw 0; background: var(--white); }
+  .company-card { background: var(--white); border: 2px solid var(--black); border-radius: 8px; overflow: hidden; }
+  .company-card.current { border-color: var(--mint); }
+  .company-card-head {
+    background: var(--black); padding: 1.8rem 2rem;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .company-card.current .company-card-head { background: var(--mint); }
+  .company-card-head-left h2 { font-size: 22px; font-weight: 900; color: var(--white); letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+  .company-card-head-left .period { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 400; }
+  .company-role-badge {
+    background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.3); color: var(--white);
+    font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 100px; white-space: nowrap; align-self: center;
+  }
+  .company-card-body { display: grid; grid-template-columns: 240px 1fr; }
+  .company-desc-col { padding: 2rem; border-right: 1px solid var(--line); background: var(--bg); }
+  .company-desc-col p { font-size: 13.5px; color: var(--gray2); line-height: 1.8; }
+  .duty-col { padding: 2rem; }
+  .duty-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mint); margin-bottom: 1rem; }
+  .duty-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .duty-list li { font-size: 14px; color: var(--gray1); line-height: 1.65; padding-left: 1.1rem; position: relative; }
+  .duty-list li::before { content: '▸'; position: absolute; left: 0; color: var(--mint); font-size: 10px; top: 4px; }
+
+  /* PROJECTS */
+  .projects-section { padding: 0 6vw 3rem; background: var(--white); border-bottom: 1px solid var(--line); }
+  .projects-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gray3); padding: 1.2rem 0; border-bottom: 1px solid var(--line); margin-bottom: 1.4rem;
+  }
+  .project-row {
+    display: grid; grid-template-columns: 36px 1fr auto; gap: 1rem; align-items: start;
+    padding: 1.2rem 1.4rem; border: 1.5px solid var(--line); border-radius: 8px; margin-bottom: 0.8rem;
+    background: var(--white); transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .project-row:hover { border-color: var(--mint); box-shadow: 0 2px 12px rgba(42,193,188,0.1); }
+  .project-num { font-size: 18px; font-weight: 900; color: var(--mint-md); line-height: 1.2; }
+  .project-main h3 { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 0.3rem; letter-spacing: -0.01em; }
+  .project-meta { font-size: 12px; color: var(--gray3); margin-bottom: 0.5rem; }
+  .project-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+  .project-bullets li { font-size: 13px; color: var(--gray2); padding-left: 1rem; position: relative; line-height: 1.6; }
+  .project-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gray4); font-size: 11px; }
+  .project-tags { display: flex; flex-direction: column; gap: 5px; align-items: flex-end; }
+  .tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 3px 9px;
+    border-radius: 100px; white-space: nowrap; background: var(--bg); color: var(--gray2); border: 1px solid var(--line);
+  }
+  .tag.mint { background: var(--mint-lt); color: var(--mint); border-color: var(--mint-md); }
+
+  /* AWARDS */
+  .awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+  .award-card {
+    background: var(--white); border: 1.5px solid var(--line); border-radius: 8px; padding: 1.4rem 1.6rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .award-card:hover { border-color: var(--mint); box-shadow: 0 2px 12px rgba(42,193,188,0.1); }
+  .award-year { font-size: 11px; font-weight: 700; color: var(--mint); letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .award-title { font-size: 14px; font-weight: 700; color: var(--black); line-height: 1.5; margin-bottom: 0.4rem; }
+  .award-desc { font-size: 12.5px; color: var(--gray3); line-height: 1.6; }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 2rem; }
+  .tl-item { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+  .tl-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .tl-period { font-size: 12px; color: var(--gray3); margin-bottom: 0.3rem; }
+  .tl-company { font-size: 17px; font-weight: 900; color: var(--black); letter-spacing: -0.02em; margin-bottom: 0.2rem; }
+  .tl-role { font-size: 12px; color: var(--mint); font-weight: 700; }
+  .tl-clients { font-size: 12px; color: var(--gray3); margin-top: 0.2rem; }
+
+  /* EDU */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .edu-group h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--mint); margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--mint);
+  }
+  .edu-item { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-year { font-size: 12px; color: var(--gray3); margin-bottom: 0.2rem; }
+  .edu-name { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 0.1rem; }
+  .edu-sub { font-size: 12.5px; color: var(--gray2); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black); padding: 2rem 6vw;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;
+  }
+  footer .f-name { font-size: 15px; font-weight: 700; color: var(--white); }
+  footer .f-name span { color: var(--mint); }
+  footer .f-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+  /* LINK */
+  .work-link { color: var(--mint); font-weight: 700; text-decoration: none; font-size: 12px; border-bottom: 1px solid var(--mint-md); transition: border-color 0.15s; }
+  .work-link:hover { border-color: var(--mint); }
+
+  /* FADE */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">권용욱<span>.</span></span>
+  <ul class="nav-links">
+    <li><a href="#about">소개</a></li>
+    <li><a href="#experience">경력</a></li>
+    <li><a href="#awards">수상</a></li>
+    <li><a href="#education">학력</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Career Portfolio</div>
+  <h1 class="hero-name">권용욱<br><span class="mint">All-rounder Marketer</span></h1>
+  <p class="hero-tagline">IMC · Digital · BTL · Global Campaign — 자동차, 가전, 게임, 주류, 교육을 아우르는<br>12년 마케팅 커뮤니케이션 경력</p>
+  <div class="hero-bottom">
+    <div class="hero-chips">
+      <span class="chip">약 12년 경력</span>
+      <span class="chip">Director</span>
+      <span class="chip">Publicis Groupe Korea</span>
+    </div>
+    <div class="hero-btns">
+      <a href="https://www.linkedin.com/in/yongwook-kwon-16a067140/" target="_blank" class="btn btn-outline">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:kyw9518@gmail.com" class="btn btn-mint">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        Contact
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-item"><span class="stat-label">총 경력</span><span class="stat-val">약 12년</span></div>
+  <div class="stat-item"><span class="stat-label">현 직책</span><span class="stat-val">Director</span></div>
+  <div class="stat-item"><span class="stat-label">수상</span><span class="stat-val">3회</span></div>
+  <div class="stat-item"><span class="stat-label">담당 브랜드</span><span class="stat-val">20+ 브랜드</span></div>
+  <div class="stat-item"><span class="stat-label">근무 회사</span><span class="stat-val">5개</span></div>
+</div>
+
+<!-- ABOUT -->
+<div class="section fade-in" id="about">
+  <div class="section-head">
+    <span class="section-badge">About</span>
+    <h2 class="section-title">소개</h2>
+  </div>
+  <p class="about-text">
+    캠페인의 <strong>컨셉 도출</strong>부터 <strong>크리에이티브 제작, 글로벌 법인 커뮤니케이션, 디지털 채널 운영</strong>까지 — 전략과 실행을 동시에 이해하는 AE입니다. 자동차 프리미엄 브랜드부터 가전 글로벌 캠페인, 게임 및 주류 BTL까지 다양한 카테고리에서 브랜드가 소비자와 의미 있게 연결되는 순간을 설계해왔습니다.
+  </p>
+</div>
+
+<!-- ──────────── EXPERIENCE ──────────── -->
+<div id="experience"></div>
+
+<!-- Publicis -->
+<div class="company-section fade-in">
+  <div class="company-card current">
+    <div class="company-card-head">
+      <div class="company-card-head-left">
+        <h2>Publicis Groupe Korea</h2>
+        <p class="period">2024. 09 — 현재 &nbsp;·&nbsp; 1년 8개월</p>
+      </div>
+      <span class="company-role-badge">Director, Digital Communications</span>
+    </div>
+    <div class="company-card-body">
+      <div class="company-desc-col">
+        <p>글로벌 광고 네트워크 Publicis Groupe Korea에서 Director로서 다수의 프리미엄 브랜드 디지털 캠페인을 담당하고 있습니다.</p>
+      </div>
+      <div class="duty-col">
+        <h4>주요 담당 업무</h4>
+        <ul class="duty-list">
+          <li>BRITA 코리아 디지털 브랜드 캠페인 기획 및 실행</li>
+          <li>배틀그라운드 글로벌 캠페인 — 북미향 에셋 개발 (글로벌 네트워크 협업)</li>
+          <li>마세라티 코리아 디지털 마케팅 관련 업무 담당</li>
+          <li>네스카페 돌체구스토 이커머스 플랫폼 운영 관리</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="projects-section fade-in">
+  <p class="projects-label">Publicis Groupe Korea — 실행 프로젝트</p>
+  <div class="project-row">
+    <span class="project-num">01</span>
+    <div class="project-main">
+      <h3>BRITA 코리아 — 디지털 브랜드 캠페인</h3>
+      <p class="project-meta">2025</p>
+      <ul class="project-bullets">
+        <li>BRITA 코리아 디지털 브랜드 캠페인 기획 및 크리에이티브 총괄</li>
+        <li>소비자 인식 조사를 기반으로 한 커뮤니케이션 메시지 및 컨셉 개발</li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">FMCG</span><span class="tag">Content</span></div>
+  </div>
+  <div class="project-row">
+    <span class="project-num">02</span>
+    <div class="project-main">
+      <h3>배틀그라운드 — 북미향 글로벌 캠페인 에셋 개발</h3>
+      <p class="project-meta">2024</p>
+      <ul class="project-bullets">
+        <li>북미 타겟 글로벌 캠페인 에셋 개발 — 글로벌 네트워크 협업</li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">Gaming</span><span class="tag">Global</span></div>
+  </div>
+  <div class="project-row">
+    <span class="project-num">03</span>
+    <div class="project-main">
+      <h3>마세라티 코리아 — 디지털 마케팅 관련 업무</h3>
+      <p class="project-meta">2024</p>
+      <ul class="project-bullets">
+        <li>마세라티 코리아 디지털 캠페인 기획 및 운영 참여</li>
+        <li>글로벌 에셋 관리 및 브랜드 웹사이트 콘텐츠 기획·업데이트</li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">Automotive</span><span class="tag">Digital</span></div>
+  </div>
+  <div class="project-row">
+    <span class="project-num">04</span>
+    <div class="project-main">
+      <h3>네스카페 돌체구스토 — 이커머스 운영 관리</h3>
+      <p class="project-meta">2024</p>
+      <ul class="project-bullets">
+        <li>이커머스 플랫폼 운영 관리 — 채널별 상품 페이지 및 프로모션 콘텐츠 관리</li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">Beverage</span><span class="tag">E-Commerce</span></div>
+  </div>
+</div>
+
+<!-- HSAD -->
+<div class="company-section fade-in" style="padding-top:2rem;">
+  <div class="company-card">
+    <div class="company-card-head">
+      <div class="company-card-head-left">
+        <h2>HSAD</h2>
+        <p class="period">2021. 06 — 2024. 08 &nbsp;·&nbsp; 3년 2개월</p>
+      </div>
+      <span class="company-role-badge">CC3팀 · 책임</span>
+    </div>
+    <div class="company-card-body">
+      <div class="company-desc-col">
+        <p>LG전자 인하우스 에이전시에서 H&A 부문 글로벌 캠페인 담당. 유럽 6개국, 글로벌 24개국 법인 대응 및 디지털광고대상 2회 수상.</p>
+      </div>
+      <div class="duty-col">
+        <h4>주요 담당 업무</h4>
+        <ul class="duty-list">
+          <li>LG전자 H&A 글로벌 캠페인 컨셉 도출 및 통합 기획</li>
+          <li>브랜드필름, USP영상, 배너 등 크리에이티브 제작 총괄</li>
+          <li>캠페인 사이트 구축·관리 및 소비자 참여 이벤트 기획</li>
+          <li>글로벌 24개국, 유럽 6개국 법인 커뮤니케이션 및 어댑테이션</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="projects-section fade-in">
+  <p class="projects-label">HSAD — 실행 프로젝트</p>
+  <div class="project-row">
+    <span class="project-num">01</span>
+    <div class="project-main">
+      <h3>LG전자 H&A Healthy Home Solution 글로벌 캠페인 — 메타버스 활용</h3>
+      <p class="project-meta">2021 &nbsp;·&nbsp; 🏆 대한민국 디지털광고대상 대상 (과기부 장관상)</p>
+      <ul class="project-bullets">
+        <li>캠페인 컨셉 기획 및 전체 크리에이티브 방향 수립</li>
+        <li>브랜딩 필름 기획 및 제작 총괄 — <a class="work-link" href="https://youtu.be/G4oDtMW-Ma4" target="_blank">영상 보기</a></li>
+        <li>Animal Crossing 내 LG 전용 공간 구현, 포트나이트 연동 소비자 이벤트 기획</li>
+        <li>글로벌 24개국 법인 커뮤니케이션 및 어댑테이션 대응</li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">Global 24개국</span><span class="tag">Metaverse</span></div>
+  </div>
+  <div class="project-row">
+    <span class="project-num">02</span>
+    <div class="project-main">
+      <h3>LG전자 H&A Clothing Care Solution 글로벌 캠페인 (#CareForWhatYouWear)</h3>
+      <p class="project-meta">2022 &nbsp;·&nbsp; 🏆 대한민국 디지털광고대상 글로벌캠페인 부문 금상</p>
+      <ul class="project-bullets">
+        <li>글로벌 캠페인 컨셉 개발 및 메인 영상 제작 총괄 — <a class="work-link" href="https://youtu.be/UXfSnLyHHLk" target="_blank">영상 보기</a></li>
+        <li>IG/FB, TikTok 소비자 참여 이벤트 기획 및 운영</li>
+        <li>유럽 6개국(독일·영국·프랑스 등) 법인 커뮤니케이션 및 현지화 어댑테이션</li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">Europe 6개국</span><span class="tag">TikTok</span></div>
+  </div>
+  <div class="project-row">
+    <span class="project-num">03</span>
+    <div class="project-main">
+      <h3>LG퓨리케어 오브제컬렉션 라이트온 정수기 디지털 캠페인</h3>
+      <p class="project-meta">2023 · 국내 디지털 캠페인</p>
+      <ul class="project-bullets">
+        <li>캠페인 전체 기획 및 크리에이티브 제작·운영 총괄</li>
+        <li>디지털 영상 제작 — <a class="work-link" href="https://youtu.be/w9DarOzq1sA" target="_blank">영상 보기</a></li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">국내</span><span class="tag">Digital</span></div>
+  </div>
+</div>
+
+<!-- Leo Burnett -->
+<div class="company-section fade-in" style="padding-top:2rem;">
+  <div class="company-card">
+    <div class="company-card-head">
+      <div class="company-card-head-left">
+        <h2>Leo Burnett <span style="font-size:14px;font-weight:400;opacity:0.6;">(Publicis Groupe)</span></h2>
+        <p class="period">2018. 09 — 2021. 05 &nbsp;·&nbsp; 2년 8개월</p>
+      </div>
+      <span class="company-role-badge">기획팀 · Account Manager</span>
+    </div>
+    <div class="company-card-body">
+      <div class="company-desc-col">
+        <p>메르세데스-벤츠 코리아, 폭스바겐 코리아 담당. ATL/디지털 캠페인, SNS, 신차 런칭, 브랜드 콜라보레이션 등 글로벌 프리미엄 자동차 AE 경험.</p>
+      </div>
+      <div class="duty-col">
+        <h4>주요 담당 업무</h4>
+        <ul class="duty-list">
+          <li>메르세데스-벤츠 코리아 디지털 캠페인 및 SNS 채널 운영</li>
+          <li>폭스바겐 코리아 마케팅 커뮤니케이션 전략 수립 및 실행</li>
+          <li>신차 런칭(아테온, 투아렉, A-Class, EQC 등) TVC·지면·디지털 소재 기획</li>
+          <li>브랜드 콜라보레이션, 인플루언서 마케팅, 골프 스폰서십 등 BTL 기획</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="projects-section fade-in">
+  <p class="projects-label">Leo Burnett — 실행 프로젝트</p>
+  <div class="project-row">
+    <span class="project-num">01</span>
+    <div class="project-main">
+      <h3>Mercedes-Benz EQ 브랜드 런칭 — EQC Soft Launch &amp; EQ Offensive</h3>
+      <p class="project-meta">2019–2020 · ATL + Digital</p>
+      <ul class="project-bullets">
+        <li>EQ 전기차 브랜드 최초 국내 론칭 — 키비주얼 및 키카피 개발</li>
+        <li>EQ 전용 SNS 채널(@mercedesbenzkr_eq) 운영 전략 수립 및 콘텐츠 기획</li>
+        <li>EQC, EQ PHEV 관련 디지털 크리에이티브 기획 및 캠페인 운영</li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">Mercedes-Benz</span><span class="tag">EV</span></div>
+  </div>
+  <div class="project-row">
+    <span class="project-num">02</span>
+    <div class="project-main">
+      <h3>Volkswagen 아테온 런칭 캠페인 &amp; 빅팬 캠페인</h3>
+      <p class="project-meta">2018–2019 · 통합 캠페인</p>
+      <ul class="project-bullets">
+        <li>아테온 런칭 — 글로벌 키클레임 로컬화, TVC·지면·라디오 기획 및 제작 PM — <a class="work-link" href="https://youtu.be/4gM2hikHDek" target="_blank">영상 보기</a></li>
+        <li>아테온 × 신세계면세점 콜라보레이션 — 키비주얼 개발, 이벤트 페이지 기획</li>
+        <li>빅팬 캠페인 — 앰버서더 영상 기획 및 빅팬 투어 영상 제작 — <a class="work-link" href="https://youtu.be/UbD2BnAVjFo" target="_blank">영상 보기</a></li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">Volkswagen</span><span class="tag">Launch</span></div>
+  </div>
+  <div class="project-row">
+    <span class="project-num">03</span>
+    <div class="project-main">
+      <h3>Volkswagen 투아렉 런칭 캠페인</h3>
+      <p class="project-meta">2019. 12 – 2020. 02 · TVC + Digital</p>
+      <ul class="project-bullets">
+        <li>투아렉 런칭 메인 영상 기획 및 제작 — TVC Full ver. / 30초 2편 / 15초 버전 — <a class="work-link" href="https://youtu.be/wYXSlz00KZo" target="_blank">영상 보기</a></li>
+        <li>투아렉 스페셜 브로셔 디자인 및 인쇄물 제작 총괄</li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">Volkswagen</span><span class="tag">TVC</span></div>
+  </div>
+  <div class="project-row">
+    <span class="project-num">04</span>
+    <div class="project-main">
+      <h3>Mercedes-Benz Compact Car (A-Class Sedan / CLA) 런칭 ATL</h3>
+      <p class="project-meta">2018–2019 · ATL Adaptation</p>
+      <ul class="project-bullets">
+        <li>Cinema, OOH, 잡지 소재 어댑테이션 — <a class="work-link" href="https://youtu.be/mi5Wbb2dks0" target="_blank">영상 보기</a></li>
+        <li>자막 작업 및 로컬 편집, 매체별 소재 포맷 최적화</li>
+      </ul>
+    </div>
+    <div class="project-tags"><span class="tag mint">Mercedes-Benz</span><span class="tag">ATL</span></div>
+  </div>
+</div>
+
+<!-- Earlier -->
+<div class="section gray fade-in">
+  <div class="section-head">
+    <span class="section-badge">Earlier</span>
+    <h2 class="section-title">이전 경력</h2>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div>
+        <p class="tl-period">2017. 05 – 2018. 08 &nbsp;·&nbsp; 1년 4개월</p>
+        <p class="tl-company">메큐라이크</p>
+        <p class="tl-role">아이디어그룹 / 대리</p>
+        <p class="tl-clients">BMW · 미래엔 · 카카오게임즈</p>
+      </div>
+      <div>
+        <div class="project-row" style="margin-bottom:0.6rem;">
+          <span class="project-num">01</span>
+          <div class="project-main">
+            <h3>BMW 2017 DO MORE 캠페인 플랫폼</h3>
+            <p class="project-meta">웹어워드 2017 브랜드프로모션 분야 최우수상</p>
+            <ul class="project-bullets"><li>DO MORE 캠페인 사이트 기획 및 구축 총괄 — <a class="work-link" href="http://domore.co.kr/" target="_blank">사이트 보기</a></li></ul>
+          </div>
+          <div class="project-tags"><span class="tag mint">BMW</span></div>
+        </div>
+        <div class="project-row">
+          <span class="project-num">02</span>
+          <div class="project-main">
+            <h3>카카오게임즈 — 프렌즈마블 런칭 &amp; 유지 캠페인</h3>
+            <p class="project-meta">2017–2018</p>
+            <ul class="project-bullets">
+              <li>커뮤니케이션 컨셉 개발, TVC·바이럴 콘텐츠 제작 — <a class="work-link" href="https://youtu.be/IzK35f315h4" target="_blank">영상 보기</a></li>
+              <li>이벤트 사이트 구축(Web/Mobile), 배너 제작 및 운영</li>
+            </ul>
+          </div>
+          <div class="project-tags"><span class="tag mint">Game</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div>
+        <p class="tl-period">2015. 04 – 2017. 04 &nbsp;·&nbsp; 2년 1개월</p>
+        <p class="tl-company">크리에이티브라운지</p>
+        <p class="tl-role">기획팀 / 대리</p>
+        <p class="tl-clients">BMW MINI · Stella Artois · AB InBev</p>
+      </div>
+      <div>
+        <div class="project-row" style="margin-bottom:0.6rem;">
+          <span class="project-num">01</span>
+          <div class="project-main">
+            <h3>BMW MINI — 오프라인 프로모션 및 런칭 캠페인</h3>
+            <p class="project-meta">2015–2017</p>
+            <ul class="project-bullets">
+              <li>MINI Flea Market Season 2·3 기획 및 실행 — <a class="work-link" href="https://youtu.be/Sn7xuJcoWeI" target="_blank">영상 보기</a></li>
+              <li>F57 MINI Convertible 런칭, 2016 부산국제모터쇼 기획</li>
+            </ul>
+          </div>
+          <div class="project-tags"><span class="tag mint">BMW MINI</span></div>
+        </div>
+        <div class="project-row">
+          <span class="project-num">02</span>
+          <div class="project-main">
+            <h3>Stella Artois / AB InBev — BTL 캠페인</h3>
+            <p class="project-meta">2015–2016</p>
+            <ul class="project-bullets">
+              <li>Stella Artois BIFF 스폰서십, Q4 CINE de CHEF 캠페인 — <a class="work-link" href="https://youtu.be/yHYIJTVS7ns" target="_blank">영상 보기</a></li>
+              <li>Corona 워커힐 풀파티, Budweiser UFC 스폰서십 기획</li>
+            </ul>
+          </div>
+          <div class="project-tags"><span class="tag mint">Beverage</span><span class="tag">BTL</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div>
+        <p class="tl-period">2013. 09 – 2014. 01 · 인턴</p>
+        <p class="tl-company">대홍기획</p>
+        <p class="tl-role">AS 3팀 / 인턴</p>
+        <p class="tl-clients">세븐럭카지노 · 쿠쿠전자 · 롯데햄 · 교원 웰스</p>
+      </div>
+      <div style="display:flex;align-items:center;">
+        <p style="font-size:13.5px;color:var(--gray2);">다양한 FMCG·엔터테인먼트 브랜드 기획 보조 업무 담당</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div class="section fade-in" id="awards">
+  <div class="section-head">
+    <span class="section-badge">Awards</span>
+    <h2 class="section-title">수상 및 활동</h2>
+  </div>
+  <div class="awards-grid">
+    <div class="award-card">
+      <p class="award-year">2025</p>
+      <p class="award-title">2025 YouTube Works Awards</p>
+      <p class="award-desc">예선 심사위원 참여</p>
+    </div>
+    <div class="award-card">
+      <p class="award-year">2022</p>
+      <p class="award-title">대한민국 디지털광고대상<br>글로벌캠페인 부문 <strong>금상</strong></p>
+      <p class="award-desc">LG전자 H&A Clothing Care Solutions 글로벌 캠페인</p>
+    </div>
+    <div class="award-card">
+      <p class="award-year">2021</p>
+      <p class="award-title">대한민국 디지털광고대상<br>전 부문 <strong>대상</strong> (과기부 장관상)</p>
+      <p class="award-desc">LG전자 H&A 건강가전 글로벌 캠페인 — 메타버스 활용</p>
+    </div>
+    <div class="award-card">
+      <p class="award-year">2018</p>
+      <p class="award-title">웹어워드 코리아<br>브랜드프로모션 분야 <strong>최우수상</strong></p>
+      <p class="award-desc">2017 BMW DO MORE Campaign Site 기획자</p>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section gray fade-in" id="education">
+  <div class="section-head">
+    <span class="section-badge">Education</span>
+    <h2 class="section-title">학력 및 자격증</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-group">
+      <h4>학력</h4>
+      <div class="edu-item">
+        <p class="edu-year">2022. 03 – 재학 중</p>
+        <p class="edu-name">연세대학교 언론홍보대학원</p>
+        <p class="edu-sub">광고PR 전공</p>
+      </div>
+      <div class="edu-item">
+        <p class="edu-year">2006. 03 – 2014. 02</p>
+        <p class="edu-name">세종대학교</p>
+        <p class="edu-sub">디지털콘텐츠학과 (전공) / 신문방송학과 (복수전공)</p>
+      </div>
+    </div>
+    <div class="edu-group">
+      <h4>자격증</h4>
+      <div class="edu-item">
+        <p class="edu-year">2015. 03</p>
+        <p class="edu-name">IAA Diploma (국제광고인자격)</p>
+        <p class="edu-sub">한국방송광고공사 발행</p>
+      </div>
+      <div class="edu-item">
+        <p class="edu-year">2010. 05</p>
+        <p class="edu-name">MOS Master 2007</p>
+        <p class="edu-sub">Microsoft 발행</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-name">권용욱<span>.</span></span>
+  <span class="f-copy">Director, Digital Communications · Publicis Groupe Korea</span>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
