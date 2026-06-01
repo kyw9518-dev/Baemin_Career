@@ -332,6 +332,145 @@
 
   /* DIVIDER */
   .company-gap { height: 2rem; background: var(--white); }
+
+  /* ================================================
+     MOBILE RESPONSIVE — 768px 이하
+  ================================================ */
+  @media (max-width: 768px) {
+
+    /* NAV */
+    nav { padding: 0 4vw; height: 48px; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 11px; }
+
+    /* HERO */
+    .appeal-hero { padding: 3rem 5vw 3rem; }
+    .appeal-hero::after { display: none; }
+    .appeal-desc { font-size: 14px; }
+
+    /* STAT BAR */
+    .stat-bar { padding: 1rem 4vw; gap: 0; }
+    .stat-item { min-width: 80px; padding-right: 1rem; margin-right: 1rem; }
+    .stat-val { font-size: 14px; }
+    .stat-label { font-size: 10px; }
+
+    /* SECTIONS */
+    .section { padding: 2.5rem 5vw; }
+    .company-section { padding: 2rem 5vw 0; }
+    .projects-section { padding: 0 5vw 2rem; }
+
+    /* WHY GRID — 1열 */
+    .why-grid { grid-template-columns: 1fr; }
+
+    /* NETWORK — 1열 */
+    .network-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+    .network-diagram { min-height: 260px; }
+
+    /* LIVE NETWORK inline 2컬럼 → 1컬럼 */
+    .section [style*="grid-template-columns: 1fr 1fr"] {
+      display: block !important;
+    }
+    .section [style*="grid-template-columns: 1fr 1fr"] > div {
+      margin-bottom: 1.5rem;
+    }
+    .two-col-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* STRENGTH TABLE — 스크롤 가능하게 */
+    .strength-table { font-size: 12px; }
+    .strength-table thead th,
+    .strength-table tbody td { padding: 0.7rem 0.8rem; }
+    .strength-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* COMPANY CARD */
+    .company-card-head { padding: 1.2rem 1.2rem; }
+    .company-card-head-left h2 { font-size: 18px; }
+    .company-card-body { grid-template-columns: 1fr; }
+    .company-desc-col { border-right: none; border-bottom: 1px solid var(--line); }
+
+    /* PROJECT ROWS */
+    .project-row { grid-template-columns: 28px 1fr; }
+    .project-tags { display: none; }
+
+    /* TIMELINE */
+    .tl-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .tl-company { font-size: 15px; }
+
+    /* EDU GRID — 1열 */
+    .edu-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    /* IMG GRID */
+    .img-grid { grid-template-columns: 1fr 1fr; }
+    .img-placeholder.wide { grid-column: span 1; }
+
+    /* FOOTER */
+    footer { flex-direction: column; align-items: flex-start; padding: 1.5rem 5vw; }
+    footer .f-copy { font-size: 11px; }
+
+    /* PF TITLE SLIDE */
+    .pf-title-slide { padding: 3rem 5vw; }
+    .pf-co-name { font-size: clamp(1.6rem, 8vw, 2.8rem); }
+
+    /* PF PROJECT */
+    .pf-project { padding: 2rem 5vw 1.5rem; }
+    .pf-project .pf-img-grid.col-1 {
+      margin-left: -5vw;
+      margin-right: -5vw;
+      width: calc(100% + 10vw);
+    }
+
+    /* PF IMG GRID — 모바일에서 1열 또는 스크롤 */
+    .pf-img-grid img {
+      max-width: calc(100% - 0px) !important;
+      height: auto !important;
+      width: 100% !important;
+      flex-shrink: 0;
+    }
+    .pf-img-grid:not(.col-1) {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .pf-img-grid:not(.col-1) img {
+      width: 80vw !important;
+      height: auto !important;
+      max-width: 80vw !important;
+      flex-shrink: 0;
+    }
+    /* col-1 이미지 (전폭) */
+    .pf-img-grid.col-1 > div[style] {
+      flex-direction: column !important;
+      padding: 0 !important;
+      gap: 0.5rem !important;
+    }
+    .pf-img-grid.col-1 > div[style] img {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    /* Fit section cards (inline style grid) */
+    .section [style*="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* ================================================
+     VERY SMALL — 480px 이하
+  ================================================ */
+  @media (max-width: 480px) {
+    .nav-links { display: none; } /* 최소 화면에서 링크 숨김 */
+    .stat-item { min-width: 60px; }
+    .appeal-name { font-size: clamp(2rem, 9vw, 3rem); }
+    .why-card { padding: 1.4rem; }
+    .company-card-head-left h2 { font-size: 16px; }
+    .pf-img-grid:not(.col-1) img {
+      width: 90vw !important;
+      max-width: 90vw !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -497,7 +636,7 @@
     <h2 class="section-title">지금 바로 연락 가능한 업계 네트워크</h2>
   </div>
 
-  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items:start;">
+  <div class="two-col-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items:start;">
 
     <div>
       <p style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--baemin);margin-bottom:1.2rem;">주요 대행사 / 매체사 실무 인맥</p>
@@ -1220,6 +1359,8 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 // 이미지 그리드 레이아웃:
 // 개수에 따라 줄당 개수 결정 → 각 줄 내 이미지들을 가장 짧은 높이에 맞춰 동일 높이 유지
 function layoutGrids() {
+  // 모바일(768px 이하)에서는 JS 레이아웃 건너뜀 (CSS가 처리)
+  if (window.innerWidth <= 768) return;
   document.querySelectorAll('.pf-img-grid:not(.col-1)').forEach(grid => {
     const items = Array.from(grid.querySelectorAll('img, .pf-dummy'));
     const count = items.length;
